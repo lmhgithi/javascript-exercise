@@ -3,7 +3,18 @@ function fetchData(url) {
     const xhr = new XMLHttpRequest();
     // <-- start
     // TODO 22: 通过Promise实现异步请求
-
+    xhr.open('GET', url);
+    xhr.onload = () => {
+      if (xhr.status === 200) {
+        resolve();
+      } else {
+        reject();
+      }
+    };
+    xhr.error = () => {
+      reject();
+    };
+    xhr.send();
     // end -->
   });
 }
