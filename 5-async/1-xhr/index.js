@@ -5,13 +5,13 @@ function fetchData(url, successCallback, errorCallback) {
   xhr.open('GET', url);
   xhr.onload = () => {
     if (xhr.status === 200) {
-      successCallback();
+      successCallback(xhr.response);
     } else {
-      errorCallback();
+      errorCallback(xhr);
     }
   };
   xhr.error = () => {
-    errorCallback();
+    errorCallback(xhr);
   };
 
   xhr.send();

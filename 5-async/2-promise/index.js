@@ -6,9 +6,9 @@ function fetchData(url) {
     xhr.open('GET', url);
     xhr.onload = () => {
       if (xhr.status === 200) {
-        resolve();
+        resolve(xhr.response);
       } else {
-        reject();
+        reject(xhr);
       }
     };
     xhr.error = () => {
